@@ -1,0 +1,15 @@
+.episodes-length {
+    box-shadow: 3px 2px 3px 0px rgb(164 164 164 /80%), -3px 2px 3px 0px rgb(164 164 164 /80%), 0px 1px 10px 0px rgb(164 164 164 /80%);
+    padding: 15px;
+}
+
+.header-episodes {
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    margin-left: 10px;
+    border-bottom: 1px solid #c2c2c2;
+    .title {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}

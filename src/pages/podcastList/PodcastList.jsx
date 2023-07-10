@@ -40,7 +40,7 @@ function PodcastList() {
       <div className="home">
         <header className="main-header">
         <h2 onClick={() => navigate('/')} className="header-title">Podcaster</h2>
-        <input type="text" value={search} onChange={handleChange} className="search"/>
+        <input type="text" value={search} placeholder='Search your favourite podcast!' onChange={handleChange} className="search"/>
         </header>
         <main className="main-home">
         {filteredPodcasts.length ? (
