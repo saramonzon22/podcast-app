@@ -3,10 +3,10 @@ import { useParams } from "react-router-dom";
 import { getSinglePodcast } from "../../services/podcast";
 import './podcastDetail.css';
 import Header from '../../components/header/Header';
-import HeaderEpisodes from "../../components/header-episodes/HeaderEpisodes";
+import HeaderEpisodes from "../../components/headerEpisodes/HeaderEpisodes";
 import CardInfo from "../../components/cardInfo/CardInfo";
 import PodcastData from "../../components/podcastData/PodcastData";
-import EpisodesLength from "../../components/episodes/episodesLength";
+import EpisodesLength from "../../components/episodesLength/episodesLength";
 
 function PodcastDetail(props) {
 
@@ -23,15 +23,16 @@ function PodcastDetail(props) {
             <main className="main">
                 <section className="main-section">
                     <CardInfo singlePodcast={singlePodcast} />
-                    <section className="section-episodes"><EpisodesLength singlePodcast={singlePodcast}/>
-                    <article className="episodes">
-                        <HeaderEpisodes singlePodcast={singlePodcast} />
+                    <section className="section-episodes">
+                        <EpisodesLength singlePodcast={singlePodcast}/>
+                        <article className="episodes">
+                            <HeaderEpisodes singlePodcast={singlePodcast} />
                         {singlePodcast.map((podCast) => {
                             return (<PodcastData podCast={podCast} />
                             )
                         })}
-                    </article>
-                </section>
+                        </article>
+                    </section>
                 </section>
             </main>
         </> : <div> loading </div>)

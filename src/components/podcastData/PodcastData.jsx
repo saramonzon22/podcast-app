@@ -24,7 +24,7 @@ function PodcastData(props) {
         return reversedDate;
     }
 
-    return <Link to={`/podcastDetail/${props.podCast.collectionId}/episode/${props.podCast.trackId}`} className="link"> <ul className="list">
+    return <Link to={`/podcastDetail/${props.podCast.collectionId}/episode/${props.podCast.trackId}`} className="link" podCast={props.podCast}> <ul className="list">
         <li>{props.podCast.trackName}</li>
         <li>{date(props.podCast.releaseDate)}</li>
         <li>{millisToTime(props.podCast.trackTimeMillis)}</li>

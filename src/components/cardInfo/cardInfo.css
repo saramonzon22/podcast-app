@@ -1,5 +1,5 @@
 .info {
-    max-height: 60vh;
+    height: 60%;
     width: 15vw;
     display: flex;
     flex-direction: column;
@@ -8,8 +8,15 @@
     margin-top: 48px;
     box-shadow: 3px 3px 3px 0px rgb(164 164 164 /80%), -3px 3px 3px 0px rgb(164 164 164 /80%), 0px 1px 10px 0px rgb(164 164 164 /80%);
 }
-.podcast-title {
+.info-podcast {
     margin-left: 20px;
+}
+
+.podcast-title {
+    margin: 0;
+}
+.podcast-artist {
+    font-style: italic;
 }
 .podcast-img {
     width: 200px;
@@ -25,4 +32,6 @@
 }
 .podcast-description {
     padding-left: 20px;
+    padding-right: 20px;
+
 }
