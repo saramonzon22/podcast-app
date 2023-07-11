@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import { MemoryRouter, Link } from 'react-router-dom';
 import PodcastDetail from './PodcastDetail';
-import { getSinglePodcast } from '../../services/podcast'; 
+import { getSinglePodcast } from '../../services/podcast';
 
 jest.mock('../../services/podcast');
 
@@ -20,7 +20,7 @@ describe('PodcastDetail', () => {
       podcastId: '1',
     };
 
-    getSinglePodcast.mockResolvedValue(mockPodcast); 
+    getSinglePodcast.mockResolvedValue(mockPodcast);
 
     render(
       <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}`]}>

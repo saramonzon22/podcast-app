@@ -23,15 +23,15 @@ function PodcastDetail(props) {
             <Header />
             <main className="main">
                 <section className="main-section">
-                    <CardInfo singlePodcast={singlePodcast} />
+                    <CardInfo singlePodcast={singlePodcast[0]} />
                     <section className="section-episodes">
-                        <EpisodesLength singlePodcast={singlePodcast}/>
+                        <EpisodesLength singlePodcast={singlePodcast} />
                         <article className="episodes">
                             <HeaderEpisodes singlePodcast={singlePodcast} />
-                        {singlePodcast.map((podCast) => {
-                            return (<PodcastData podCast={podCast} />
-                            )
-                        })}
+                            {singlePodcast.map((podCast) => {
+                                return (<PodcastData podCast={podCast} />
+                                )
+                            })}
                         </article>
                     </section>
                 </section>
