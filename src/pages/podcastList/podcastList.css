@@ -23,9 +23,26 @@
     align-self: center;
 }
 .search {
-    width: 200px;
+    display: flex;
+    width: 82vw;
+    height: 100px;
+    margin-left: -5px;
+    justify-content: flex-end;
+    align-items: baseline;
+    gap: 15px;
+}
+.podcastListLength {
+    background-color: cadetblue;
+    width: 30px;
+    height: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    color: white;
+}
+.search-input {
     height: 30px;
     padding-left: 15px;
+    padding-right: 15px;
 }
 
 .card {

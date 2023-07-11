@@ -27,7 +27,6 @@ async function getTop100() {
         return formattedResponse.feed.entry;
     } catch (error) {
         console.error('Ocurrió un error:', error);
-        throw error;
     }
 }
 
@@ -43,7 +42,6 @@ async function getSinglePodcast(podcastId) {
         return formattedSinglePodcast.results;
     } catch (error) {
         console.error('Ocurrió un error:', error);
-        throw error;
     }
 }
 

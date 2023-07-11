@@ -6,7 +6,8 @@ import Header from '../../components/header/Header';
 import HeaderEpisodes from "../../components/headerEpisodes/HeaderEpisodes";
 import CardInfo from "../../components/cardInfo/CardInfo";
 import PodcastData from "../../components/podcastData/PodcastData";
-import EpisodesLength from "../../components/episodesLength/episodesLength";
+import EpisodesLength from "../../components/episodesLength/EpisodesLength";
+import Loading from "../../components/loading/Loading";
 
 function PodcastDetail(props) {
 
@@ -35,7 +36,7 @@ function PodcastDetail(props) {
                     </section>
                 </section>
             </main>
-        </> : <div> loading </div>)
+        </> : <Loading />)
 }
 
 export default PodcastDetail;

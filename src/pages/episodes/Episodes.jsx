@@ -33,7 +33,7 @@ function Episodes(props) {
                     </audio>
                 </article>
             </section>
-        </main> </> : <div>nada que ver</div>)
+        </main> </> : <div>Cant access to this episode</div>)
 }
 
 
