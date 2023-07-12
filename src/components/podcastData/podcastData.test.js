@@ -14,7 +14,6 @@ describe('PodcastData component', () => {
         };
         const mockParams = {
             podcastId: '1',
-            episodeId: '1',
         };
         render(
             <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}`]}>

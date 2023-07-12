@@ -11,11 +11,7 @@ describe('PodcastDetail', () => {
     const mockPodcast = {
       podcastId: 1,
       podcastName: 'Podcast 1',
-      episodes: [
-        { episodeId: 1, episodeName: 'Episode 1' },
-        { episodeId: 2, episodeName: 'Episode 2' },
-      ],
-    };
+      };
     const mockParams = {
       podcastId: '1',
     };

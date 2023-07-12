@@ -16,7 +16,6 @@ describe('Card Info component', () => {
         };
         const mockParams = {
             podcastId: '1',
-            episodeId: '1',
           };
 
 
@@ -37,8 +36,7 @@ describe('Card Info component', () => {
         };
         const mockParams = {
             podcastId: '1',
-            episodeId: '1',
-          };
+        };
 
 
         render(
