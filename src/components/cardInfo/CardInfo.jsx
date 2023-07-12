@@ -1,5 +1,6 @@
 import React from 'react';
-import './cardInfo.css';
+
+import { Card, Italic } from './cardInfo.styles';
 
 function CardInfo(props) {
 
@@ -12,17 +13,17 @@ function CardInfo(props) {
 
     content = (
       <>
-        <article className="info">
-          <img src={props.singlePodcast.artworkUrl600} alt="" className="podcast-img" />
-          <div className='info-podcast'>
-            <h4 className="podcast-title">{props.singlePodcast.collectionName}</h4>
-            <p className='podcast-artist'>By {props.singlePodcast.artistName}</p>
+        <Card>
+          <img src={props.singlePodcast.artworkUrl600} alt="podcast-img"/>
+          <div>
+            <h4>{props.singlePodcast.collectionName}</h4>
+            <Italic>By {props.singlePodcast.artistName}</Italic>
           </div>
-          <div className="podcast-description">
+          <div>
             <h4>Description:</h4>
-            <p className="description-info">{descriptionText}</p>
+            <p>{descriptionText}</p>
           </div>
-        </article>
+        </Card>
       </>
     );
   } else if (props.singleEpisode) {
@@ -33,17 +34,17 @@ function CardInfo(props) {
     const collectionName = props.singleEpisode.collectionName;
     const alternativeName = collectionName ? collectionName : 'No name provided';
     content = (
-      <>
-        <img src={props.singleEpisode.artworkUrl600} alt="" className="podcast-img" />
-        <div className='info-podcast'>
-          <h4 className="podcast-title">{props.singleEpisode.collectionName}</h4>
-          <p className='podcast-artist'>By {alternativeName}</p>
+      <Card>
+        <img src={props.singleEpisode.artworkUrl600} alt="podcast-img" />
+        <div>
+          <h4>{props.singleEpisode.collectionName}</h4>
+          <Italic>By {alternativeName}</Italic>
         </div>
-        <div className="podcast-description">
+        <div>
           <h4>Description:</h4>
-          <p className="description-info">{descriptionTextEpisode}</p>
+          <p>{descriptionTextEpisode}</p>
         </div>
-      </>
+        </Card>
     );
   }
 

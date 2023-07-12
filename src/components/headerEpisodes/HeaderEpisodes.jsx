@@ -1,13 +1,13 @@
-import './headerEpisodes.css'
+import {HeaderEp, TitleHeader} from './headerEpisodes.styles';
 
 function HeaderEpisodes(props) {
 
     return (
-        <div className="header-episodes">
-            <p className="title">Title</p>
+        <HeaderEp>
+            <TitleHeader>Title</TitleHeader>
             <p>Date</p>
             <p>Duration</p>
-        </div>)
+        </HeaderEp>)
 }
 
 export default HeaderEpisodes;

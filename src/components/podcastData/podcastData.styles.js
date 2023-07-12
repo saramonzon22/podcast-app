@@ -1,4 +1,6 @@
-.list {
+import styled from 'styled-components';
+
+export const List = styled.ul`
     display: grid;
     list-style: none;
     padding: 10px;
@@ -7,8 +9,8 @@
     color: black;
     margin-left: 15px;
     border-bottom: 1px solid #c2c2c2;
-    
+
+    &:hover {
+        color: grey;
 }
-.list:hover {
-    color: grey;
-}
+`

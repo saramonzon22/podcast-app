@@ -1,11 +1,13 @@
-import { Link } from "react-router-dom";
-import './header.css';
+import {LinkStyles} from '../link/link.styles'
+import { HeaderStyles, PodcasterStyle } from './header.styles';
 
 function Header() {
 
-    return (<header className="header">
-        <Link to='/' className="link"><h2 className="back">Podcaster</h2></Link>
-    </header>)
+    return (<HeaderStyles>
+        <LinkStyles to='/'>
+            <PodcasterStyle>Podcaster</PodcasterStyle>
+        </LinkStyles>
+    </HeaderStyles>)
 }
 
 export default Header;

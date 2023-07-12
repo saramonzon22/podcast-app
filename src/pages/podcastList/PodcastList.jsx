@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getTop100 } from "../../services/podcast";
-import './podcastList.css';
+import { Home, MainHome, MainSearch, MainCard } from "./podcastList.styles";
 import Loading from "../../components/loading/Loading";
 import Header from "../../components/header/Header";
 
@@ -39,40 +39,38 @@ function PodcastList() {
 
   return (
     podcastList.length ? (
-      <div className="home">
+      <Home>
         <Header>
         </Header>
-        <div className="search"><span className="podcastListLength">{podcastList.length}</span>
+        <MainSearch><span>{podcastList.length}</span>
           <input type="text" value={search} placeholder='Search your favourite podcast!' onChange={handleChange} className="search-input" />
-        </div>
-        <main className="main-home">
+        </MainSearch>
+        <MainHome>
           {filteredPodcasts.length ? (
             filteredPodcasts.map((eachPodcast) => (
-              <ul
+              <MainCard
                 onClick={() =>
                   navigate(`/podcastDetail/${eachPodcast.id.attributes["im:id"]}`)
                 }
-                className="card"
                 key={eachPodcast.id.attributes["im:id"]}
               >
                 <img
                   src={eachPodcast["im:image"][2].label}
-                  className="img"
                   alt="podcast-img"
                 />
-                <li className="name">{eachPodcast["im:name"].label}</li>
-                <li className="artist">{eachPodcast["im:artist"].label}</li>
-                <li className="category">
+                <li>{eachPodcast["im:name"].label}</li>
+                <li>{eachPodcast["im:artist"].label}</li>
+                <li>
                   {eachPodcast.category.attributes.label}
                 </li>
-              </ul>
+              </MainCard>
             ))
           ) : (
             <div>
               We have not found any matches for your search</div>
           )}
-        </main>
-      </div>
+        </MainHome>
+      </Home>
     ) : (
       <Loading />
     )

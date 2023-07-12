@@ -1,5 +1,7 @@
+import {EpisodesStyles} from './episodesLength.styles';
+
 function EpisodesLength(props) {
-    return <h2 className="episodes-length">Episodes: {props.singlePodcast.length}</h2>
+    return <EpisodesStyles>Episodes: {props.singlePodcast.length}</EpisodesStyles>
 }
 
 export default EpisodesLength;

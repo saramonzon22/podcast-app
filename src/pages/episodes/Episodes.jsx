@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { getSinglePodcast } from "../../services/podcast";
 import Header from "../../components/header/Header";
-import './episodes.css';
+import { MainStyled, SectionMain } from "../../components/main/main.styles";
+import {LinkStyles} from '../../components/link/link.styles';
+import {EpisodesStyles} from './episodes.styles';
+import './episodes.styles.js';
 import CardInfo from "../../components/cardInfo/CardInfo";
 
 
@@ -19,21 +22,21 @@ function Episodes(props) {
     const singleEpisode = episode.find(ep => ep.trackId === episodeIdParam);
 
     return (singleEpisode ? <> <Header />
-        <main className="main">
-            <section className="main-section">
-                <Link to={`/podcastDetail/${singleEpisode.collectionId}`} className="info">
+        <MainStyled>
+            <SectionMain>
+                <LinkStyles to={`/podcastDetail/${singleEpisode.collectionId}`}>
                     <CardInfo singleEpisode={singleEpisode} />
-                </Link>
-                <article className="episode-description">
+                </LinkStyles>
+                <EpisodesStyles>
                     <h4>{singleEpisode.trackName}</h4>
                     <p>{singleEpisode.description}</p>
                     <audio controls>
                         <source src={singleEpisode.previewUrl} type="audio/mpeg" />
                         Your browser does not support the audio element.
                     </audio>
-                </article>
-            </section>
-        </main> </> : <div>Cant access to this episode</div>)
+                </EpisodesStyles>
+            </SectionMain>
+        </MainStyled> </> : <div>Cant access to this episode</div>)
 }
 
 
