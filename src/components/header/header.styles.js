@@ -4,6 +4,7 @@ export const HeaderStyles = styled.header`
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: space-between;
     gap: 30px;
     border-bottom: 1px solid aliceblue;
     margin-bottom: 5px;

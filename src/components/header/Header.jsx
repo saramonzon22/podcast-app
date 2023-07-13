@@ -1,13 +1,28 @@
-import {LinkStyles} from '../link/link.styles'
+import { LinkStyles } from '../link/link.styles'
 import { HeaderStyles, PodcasterStyle } from './header.styles';
+import Loading from '../loading/Loading';
 
-function Header() {
+function Header(props) {
 
-    return (<HeaderStyles>
-        <LinkStyles to='/'>
-            <PodcasterStyle>Podcaster</PodcasterStyle>
-        </LinkStyles>
-    </HeaderStyles>)
+    return (
+        <>
+            {props.isLoading ? (
+               <> <HeaderStyles>
+                    <LinkStyles to='/'>
+                        <PodcasterStyle>Podcaster</PodcasterStyle>
+                    </LinkStyles>
+                    
+                </HeaderStyles>
+                <Loading /></>
+            ) : (
+                <HeaderStyles>
+                    <LinkStyles to='/'>
+                        <PodcasterStyle>Podcaster</PodcasterStyle>
+                    </LinkStyles>
+                </HeaderStyles>
+            )}
+        </>
+    );
 }
 
 export default Header;

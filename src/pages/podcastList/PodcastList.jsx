@@ -9,12 +9,17 @@ function PodcastList() {
   const [podcastList, setPodcastList] = useState([]);
   const [search, setSearch] = useState("");
   const [filteredPodcasts, setFilteredPodcasts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setIsLoading(true);
+
     getTop100().then((response) => {
       setPodcastList(response);
       setFilteredPodcasts(response);
+      setIsLoading(false);
+
     });
   }, []);
 
@@ -37,7 +42,7 @@ function PodcastList() {
   return (
     podcastList.length ? (
       <Home>
-        <Header>
+        <Header loading={isLoading}>
         </Header>
         <MainSearch><span>{filteredPodcasts.length}</span>
           <input type="text" value={search} placeholder='Search your favourite podcast!' onChange={handleChange} className="search-input" />

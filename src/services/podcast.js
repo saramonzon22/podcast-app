@@ -75,6 +75,7 @@ async function getSinglePodcast(podcastId) {
 
         localStorage.setItem(`podcast-${podcastId}`, JSON.stringify(cachedDataObj));
         const formattedPodcast = formattedSinglePodcast.results;
+        
 
         console.log(formattedPodcast)
        
@@ -90,7 +91,8 @@ async function getSinglePodcast(podcastId) {
                 trackName: singlePodcast.trackName,
                 trackTimeMillis: singlePodcast.trackTimeMillis,
                 releaseDate: singlePodcast.releaseDate,
-                trackId: singlePodcast.trackId
+                trackId: singlePodcast.trackId,
+                previewUrl: singlePodcast.previewUrl
             };
             results.push(result);
           });
