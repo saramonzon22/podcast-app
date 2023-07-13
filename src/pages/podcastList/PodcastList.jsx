@@ -25,14 +25,11 @@ function PodcastList() {
 
   const filterPodcasts = (searchTerm) => {
     const filtered = podcastList.filter((podcast) => {
-      const podcastName = podcast["im:name"].label.toLowerCase();
-      const artistName = podcast["im:artist"].label.toLowerCase();
-      const category = podcast.category.attributes.label.toLowerCase();
+      const podcastName = podcast.name.toLowerCase();
+      const artistName = podcast.author.toLowerCase();
       return (
         podcastName.includes(searchTerm.toLowerCase()) ||
-        artistName.includes(searchTerm.toLowerCase()) ||
-        category.includes(searchTerm.toLowerCase())
-      );
+        artistName.includes(searchTerm.toLowerCase()));
     });
     setFilteredPodcasts(filtered);
   };
@@ -42,7 +39,7 @@ function PodcastList() {
       <Home>
         <Header>
         </Header>
-        <MainSearch><span>{podcastList.length}</span>
+        <MainSearch><span>{filteredPodcasts.length}</span>
           <input type="text" value={search} placeholder='Search your favourite podcast!' onChange={handleChange} className="search-input" />
         </MainSearch>
         <MainHome>
@@ -50,19 +47,16 @@ function PodcastList() {
             filteredPodcasts.map((eachPodcast) => (
               <MainCard
                 onClick={() =>
-                  navigate(`/podcastDetail/${eachPodcast.id.attributes["im:id"]}`)
+                  navigate(`/podcastDetail/${eachPodcast.id}`)
                 }
-                key={eachPodcast.id.attributes["im:id"]}
+                key={eachPodcast.id}
               >
                 <img
-                  src={eachPodcast["im:image"][2].label}
+                  src={eachPodcast.img}
                   alt="podcast-img"
                 />
-                <li>{eachPodcast["im:name"].label}</li>
-                <li>{eachPodcast["im:artist"].label}</li>
-                <li>
-                  {eachPodcast.category.attributes.label}
-                </li>
+                <h4>{eachPodcast.name}</h4>
+                <p>{eachPodcast.author}</p>
               </MainCard>
             ))
           ) : (

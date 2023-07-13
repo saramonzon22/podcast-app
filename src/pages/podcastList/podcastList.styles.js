@@ -29,7 +29,8 @@ export const MainSearch = styled.div`
         height: 20px;
         padding: 5px;
         border-radius: 5px;
-        color: white;  
+        color: white;
+        text-align: center;  
     }
 
     & > input {
@@ -39,9 +40,9 @@ export const MainSearch = styled.div`
     }
 `
 
-export const MainCard = styled.ul `
+export const MainCard = styled.div `
     width: 250px;
-    height: 300px;
+    height: fit-content;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -57,11 +58,18 @@ export const MainCard = styled.ul `
         border-radius: 50%;
         width: 150px;
         height: 150x;
-        transform:translateY(-60px);
+        transform: translateY(-40px);
     }
-    & > li {
-        margin-bottom: 5px;
-        transform:translateY(-20px);
+    & > h4 {
+        margin: 0;
+        text-transform: uppercase;
+        transform: translateY(-20px);
+    }
+    & > p {
+        font-size: 14px;
+        color: gray;
+        transform: translateY(-20px);
+    }
     }
 `
 

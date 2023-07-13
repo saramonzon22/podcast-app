@@ -1,14 +1,14 @@
 function checkLocalStorage(keyName, maxHoursValue) {
     const storedData = localStorage.getItem(keyName);
-    const storedTimeLS = localStorage.getItem(`${keyName}Time`);
 
-    if (storedData && storedTimeLS) {
+    if (storedData) {
+        const storedDataObj = JSON.parse(storedData)
         const currentTime = new Date().getTime();
-        const storedTime = new Date(storedTimeLS).getTime();
+        const storedTime = storedDataObj.time;
         const differenceHours = (currentTime - storedTime) / (1000 * 60 * 60);
 
         if (differenceHours < maxHoursValue) {
-            return JSON.parse(storedData);
+            return storedDataObj.data;
         }
     }
 
@@ -28,11 +28,28 @@ async function getTop100() {
             throw new Error('Error en la solicitud');
         }
         const formattedResponse = await response.json();
+        
+        const cachedDataObj = {
+            data: formattedResponse.feed.entry,
+            time: new Date().toISOString()
+        };
 
-        localStorage.setItem('top100Podcasts', JSON.stringify(formattedResponse.feed.entry));
-        localStorage.setItem('top100PodcastsTime', new Date().toISOString());
+        localStorage.setItem('top100Podcasts', JSON.stringify(cachedDataObj));
+    
+        const results = [];
+    
+        formattedResponse.feed.entry.forEach((podcast) => {
+          const result = {
+            id: podcast.id.attributes['im:id'],
+            img: podcast['im:image'][2].label,
+            name: podcast['im:name'].label,
+            author: podcast['im:artist'].label,
+            description: podcast.summary.label
+          };
+          results.push(result);
+        });
+        return results;
 
-        return formattedResponse.feed.entry;
     } catch (error) {
         console.error('Ocurrió un error:', error);
     }
@@ -51,9 +68,34 @@ async function getSinglePodcast(podcastId) {
         }
 
         const formattedSinglePodcast = await response.json();
-        localStorage.setItem(`podcast-${podcastId}`, JSON.stringify(formattedSinglePodcast.results));
-        localStorage.setItem(`podcast-${podcastId}Time`, new Date().toISOString());
-        return formattedSinglePodcast.results;
+        const cachedDataObj = {
+            data: formattedSinglePodcast.results,
+            time: new Date().toISOString()
+        };
+
+        localStorage.setItem(`podcast-${podcastId}`, JSON.stringify(cachedDataObj));
+        const formattedPodcast = formattedSinglePodcast.results;
+
+        console.log(formattedPodcast)
+       
+        const results = [];
+
+        formattedPodcast.forEach((singlePodcast) => {
+            const result = {
+                artworkUrl600: singlePodcast.artworkUrl600,
+                collectionName: singlePodcast.collectionName,
+                collectionId: singlePodcast.collectionId,
+                description: singlePodcast.description, 
+                shortDescription: singlePodcast.shortDescription,
+                trackName: singlePodcast.trackName,
+                trackTimeMillis: singlePodcast.trackTimeMillis,
+                releaseDate: singlePodcast.releaseDate,
+                trackId: singlePodcast.trackId
+            };
+            results.push(result);
+          });
+          return results;
+
     } catch (error) {
         console.error('Ocurrió un error:', error);
     }

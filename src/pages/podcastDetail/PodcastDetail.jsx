@@ -3,11 +3,12 @@ import { useParams } from "react-router-dom";
 import { getSinglePodcast } from "../../services/podcast";
 import Header from '../../components/header/Header';
 import HeaderEpisodes from "../../components/headerEpisodes/HeaderEpisodes";
+import CardInfo from "../../components/cardInfo/CardInfo";
+import EpisodesLength from "../../components/episodesLength/EpisodesLength";
+import PodcastData from "../../components/podcastData/PodcastData";
+import Error from "../../components/error/Error";
 import { MainStyled, SectionMain } from "../../components/main/main.styles";
 import {PodcastStyled, PodcastEpisodesStyled } from "./podcastDetail.styles";
-import CardInfo from "../../components/cardInfo/CardInfo";
-import PodcastData from "../../components/podcastData/PodcastData";
-import EpisodesLength from "../../components/episodesLength/EpisodesLength";
 
 function PodcastDetail(props) {
 
@@ -21,22 +22,22 @@ function PodcastDetail(props) {
     return (singlePodcast ?
         <>
             <Header />
-            <MainStyled>
+            <MainStyled  key={singlePodcast.collectionId}>
                 <SectionMain>
-                    <CardInfo singlePodcast={singlePodcast[0]} />
+                    <CardInfo singlePodcast={singlePodcast[0]}/>
                     <PodcastStyled>
                         <EpisodesLength singlePodcast={singlePodcast} />
                         <PodcastEpisodesStyled>
                             <HeaderEpisodes singlePodcast={singlePodcast} />
                             {singlePodcast.map((podCast) => {
-                                return (<PodcastData podCast={podCast} />
+                                return (<PodcastData key={podCast.id} podCast={podCast} />
                                 )
                             })}
                         </PodcastEpisodesStyled>
                     </PodcastStyled>
                 </SectionMain>
             </MainStyled>
-        </> : <div>The request could not be carried out</div>)
+        </> : <Error />)
 }
 
 export default PodcastDetail;

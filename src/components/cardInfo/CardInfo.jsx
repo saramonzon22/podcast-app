@@ -8,7 +8,7 @@ function CardInfo(props) {
   let content;
   if (props.singlePodcast) {
 
-    const description = props.singlePodcast[props.singlePodcast.length - 1]?.shortDescription;
+    const description = props.singlePodcast.shortDescription;
     const descriptionText = description ? description : 'The podcast author has not provided a description to show';
 
     content = (
@@ -16,8 +16,8 @@ function CardInfo(props) {
         <Card>
           <img src={props.singlePodcast.artworkUrl600} alt="podcast-img"/>
           <div>
-            <h4>{props.singlePodcast.collectionName}</h4>
-            <Italic>By {props.singlePodcast.artistName}</Italic>
+            <h4>{props.singlePodcast.trackName}</h4>
+            <Italic>By {props.singlePodcast.collectionName}</Italic>
           </div>
           <div>
             <h4>Description:</h4>
@@ -37,7 +37,7 @@ function CardInfo(props) {
       <Card>
         <img src={props.singleEpisode.artworkUrl600} alt="podcast-img" />
         <div>
-          <h4>{props.singleEpisode.collectionName}</h4>
+          <h4>{props.singleEpisode.trackName}</h4>
           <Italic>By {alternativeName}</Italic>
         </div>
         <div>
