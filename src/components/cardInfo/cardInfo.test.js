@@ -21,7 +21,7 @@ describe('Card Info component', () => {
 
         render(
             <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}`]}>
-              <CardInfo singlePodcast={mockSinglePodcast} />
+              <CardInfo singlePodcast={mockSinglePodcast} singleDescription={mockSinglePodcast}/>
             </MemoryRouter>
           );
     })
@@ -32,7 +32,6 @@ describe('Card Info component', () => {
             artistName: 'name', 
             artworkUrl600: 'https://placehold.co/600x400/EEE/31343C',
             collectionName: 'collectionName',
-            shortDescription: 'shortDescription', 
         };
         const mockParams = {
             podcastId: '1',
@@ -41,7 +40,7 @@ describe('Card Info component', () => {
 
         render(
             <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}`]}>
-              <CardInfo singleEpisode={mockSingleEpisode} />
+              <CardInfo singleEpisode={mockSingleEpisode} singleDescription={mockSingleEpisode}/>
             </MemoryRouter>
           );
     })

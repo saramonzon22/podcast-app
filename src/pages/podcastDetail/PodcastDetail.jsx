@@ -16,15 +16,20 @@ function PodcastDetail() {
     const [singlePodcast, setSinglePodcast] = useState([]);
 
     useEffect(() => {
-        getSinglePodcast(params.podcastId).then((response) => setSinglePodcast(response));
-    }, [params.podcastId]);
+        const fetchData = async () => {
+          const response = await getSinglePodcast(params.podcastId);
+          setSinglePodcast(response);
+        };
+    
+        fetchData();
+      }, [params.podcastId]);
 
     return (singlePodcast ?
         <>
             <Header />
             <MainStyled  key={singlePodcast.collectionId}>
                 <SectionMain>
-                    <CardInfo singlePodcast={singlePodcast[0]}/>
+                    <CardInfo singlePodcast={singlePodcast[0]} singleDescription={singlePodcast[singlePodcast.length - 1]}/>
                     <PodcastStyled>
                         <EpisodesLength singlePodcast={singlePodcast} />
                         <PodcastEpisodesStyled>

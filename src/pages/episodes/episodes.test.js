@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, waitFor, screen, act } from '@testing-library/react';
+import { render, waitFor, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import Episodes from './Episodes';
 import { getSinglePodcast } from '../../services/podcast';

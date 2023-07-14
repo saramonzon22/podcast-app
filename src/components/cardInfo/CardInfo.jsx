@@ -8,7 +8,7 @@ function CardInfo(props) {
   let content;
   if (props.singlePodcast) {
 
-    const description = props.singlePodcast.shortDescription;
+    const description = props.singleDescription.shortDescription;
     const descriptionText = description ? description : 'The podcast author has not provided a description to show';
 
     content = (

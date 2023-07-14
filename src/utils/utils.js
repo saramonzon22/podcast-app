@@ -1,6 +1,10 @@
 
 const millisToTime = function (mis) {
 
+  if (isNaN(mis)) {
+    return 'Invalid time';
+  }
+
     function addZ(n) {
       return (n < 10 ? '0' : '') + n;
     }
