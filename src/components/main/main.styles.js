@@ -1,4 +1,6 @@
 import { styled } from "styled-components";
+import { device } from "../../utils/sizes";
+
 
 export const MainStyled = styled.main`
     width: 100%;
@@ -11,6 +13,17 @@ export const MainStyled = styled.main`
 export const SectionMain = styled.section`
     display: flex;
     justify-content: space-evenly;
-    min-height: 70vh;
-    width: 65%;
+    min-height: 40vh;
+    width: 90%;
+    flex-wrap: wrap;
+    
+    @media ${device.tablet} {
+    height: 15%;
+    width: 80vw;
+    }
+    @media ${device.laptop} {
+        flex-wrap: no-wrap;
+        min-height: 70vh;
+
+    }
 `

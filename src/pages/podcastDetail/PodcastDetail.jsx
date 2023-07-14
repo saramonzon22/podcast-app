@@ -10,7 +10,7 @@ import Error from "../../components/error/Error";
 import { MainStyled, SectionMain } from "../../components/main/main.styles";
 import {PodcastStyled, PodcastEpisodesStyled } from "./podcastDetail.styles";
 
-function PodcastDetail(props) {
+function PodcastDetail() {
 
     const params = useParams();
     const [singlePodcast, setSinglePodcast] = useState([]);

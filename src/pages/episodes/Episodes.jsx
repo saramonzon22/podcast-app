@@ -9,7 +9,7 @@ import './episodes.styles.js';
 import CardInfo from "../../components/cardInfo/CardInfo";
 
 
-function Episodes(props) {
+function Episodes() {
 
     const params = useParams();
     const [episode, setEpisode] = useState([]);

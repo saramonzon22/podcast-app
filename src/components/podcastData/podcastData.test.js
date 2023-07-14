@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import PodcastData from './PodcastData';
 
@@ -9,8 +9,8 @@ describe('PodcastData component', () => {
 
         const mockpodCast = {
             trackName: 'trackName',
-            releaseDate: '11/07/2023',
-            trackTimeMillis: '125469873',
+            releaseDate: '2023-07-11T18:25:43.000Z',
+            trackTimeMillis: '3600000',
         };
         const mockParams = {
             podcastId: '1',
@@ -20,5 +20,12 @@ describe('PodcastData component', () => {
                 <PodcastData podCast={mockpodCast} />
             </MemoryRouter>
         );
+        const episodeTitle = screen.getByText('trackName');
+        const releaseDate = screen.getByText('11-07-2023');
+        const trackTime = screen.getByText('01:00:00');
+    
+        expect(episodeTitle).toBeInTheDocument();
+        expect(releaseDate).toBeInTheDocument();
+        expect(trackTime).toBeInTheDocument();
     })
 });

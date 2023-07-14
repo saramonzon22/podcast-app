@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import { device } from "../../utils/sizes";
 
 export const Home = styled.div`
     display: flex;
@@ -6,23 +7,34 @@ export const Home = styled.div`
     min-height: 100%;
 `
 
-export const MainHome = styled.main `    
+export const MainHome = styled.main ` 
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 20px;
-    width: 70vw;
+    grid-template-columns: 1fr;
     align-self: center;
+    gap: 20px;
+
+    @media ${device.tablet} {
+        grid-template-columns: 1fr 1fr;
+      }
+    
+      @media ${device.laptop} {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        gap: 20px;
+        width: 70vw;
+        align-self: center;
+      }
 `
 
 export const MainSearch = styled.div`
-    display: flex;
-    width: 82vw;
-    height: 100px;
-    margin-left: -5px;
-    justify-content: flex-end;
-    align-items: baseline;
-    gap: 15px;
-
+        display: flex;
+        width: 100%;
+        height: 100px;
+        margin-left: -5px;
+        justify-content: flex-end;
+        align-items: baseline;
+        gap: 15px;
+    
     & > span {
         background-color: cadetblue;
         width: 30px;
@@ -32,15 +44,28 @@ export const MainSearch = styled.div`
         color: white;
         text-align: center;  
     }
-
     & > input {
         height: 30px;
         padding-left: 15px;
         padding-right: 15px;    
     }
+    @media ${device.tablet} {
+
+    }
+
+    @media ${device.laptop} {
+        width: 82vw;
+    
+        & > input {
+            height: 30px;
+            padding-left: 15px;
+            padding-right: 15px;    
+        }
+      }
 `
 
 export const MainCard = styled.div `
+
     width: 250px;
     height: fit-content;
     list-style: none;

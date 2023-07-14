@@ -7,13 +7,13 @@ function Header(props) {
     return (
         <>
             {props.isLoading ? (
-               <> <HeaderStyles>
+               <HeaderStyles>
                     <LinkStyles to='/'>
                         <PodcasterStyle>Podcaster</PodcasterStyle>
                     </LinkStyles>
-                    
+                <Loading />    
                 </HeaderStyles>
-                <Loading /></>
+                
             ) : (
                 <HeaderStyles>
                     <LinkStyles to='/'>

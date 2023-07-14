@@ -1,6 +1,6 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import { MemoryRouter, Link } from 'react-router-dom';
+import { MemoryRouter} from 'react-router-dom';
 import PodcastDetail from './PodcastDetail';
 import { getSinglePodcast } from '../../services/podcast';
 
@@ -20,9 +20,7 @@ describe('PodcastDetail', () => {
 
     render(
       <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}`]}>
-        <Link to="/podcastDetail/:podcastId">
-          <PodcastDetail />
-        </Link>
+        <PodcastDetail />
       </MemoryRouter>
     );
   });
