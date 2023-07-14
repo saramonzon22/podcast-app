@@ -12,10 +12,6 @@ export const PodcastEpisodesStyled = styled.article`
     box-shadow: 3px 2px 3px 0px rgb(164 164 164 /80%), -3px 2px 3px 0px rgb(164 164 164 /80%), 0px 1px 10px 0px rgb(164 164 164 /80%);
     margin-top: 25px;
 
-    @media ${device.tablet} {
-
-    }
-
     @media ${device.laptop} {
         width: 40vw;
     }

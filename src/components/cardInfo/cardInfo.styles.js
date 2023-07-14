@@ -38,17 +38,15 @@ export const Card = styled.article`
             height: 150px;
     }
 
-  @media ${device.laptop} {
-    height: 60%;
-    width: 20vw;
+    @media ${device.laptop} {
+        height: 60%;
+        width: 20vw;
 
- & > img {
-    width: 200px;
-    height: 200px;
+        & > img {
+            width: 200px;
+            height: 200px;
+        }
 }
-  }
-
-
 `;
 
 export const Italic = styled.p`

@@ -17,7 +17,7 @@ describe('Episodes', () => {
     getSinglePodcast.mockResolvedValue(null);
     render(
       <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}/episodes/${mockParams.episodeId}`]}>
-          <Episodes />
+        <Episodes />
       </MemoryRouter>
     );
     await waitFor(() => {

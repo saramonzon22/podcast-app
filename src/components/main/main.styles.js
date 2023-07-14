@@ -18,8 +18,8 @@ export const SectionMain = styled.section`
     flex-wrap: wrap;
     
     @media ${device.tablet} {
-    height: 15%;
-    width: 80vw;
+        height: 15%;
+        width: 80vw;
     }
     @media ${device.laptop} {
         flex-wrap: no-wrap;

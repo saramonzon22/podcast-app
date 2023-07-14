@@ -8,7 +8,7 @@ import EpisodesLength from "../../components/episodesLength/EpisodesLength";
 import PodcastData from "../../components/podcastData/PodcastData";
 import Error from "../../components/error/Error";
 import { MainStyled, SectionMain } from "../../components/main/main.styles";
-import {PodcastStyled, PodcastEpisodesStyled } from "./podcastDetail.styles";
+import { PodcastStyled, PodcastEpisodesStyled } from "./podcastDetail.styles";
 
 function PodcastDetail() {
 
@@ -17,19 +17,19 @@ function PodcastDetail() {
 
     useEffect(() => {
         const fetchData = async () => {
-          const response = await getSinglePodcast(params.podcastId);
-          setSinglePodcast(response);
+            const response = await getSinglePodcast(params.podcastId);
+            setSinglePodcast(response);
         };
-    
+
         fetchData();
-      }, [params.podcastId]);
+    }, [params.podcastId]);
 
     return (singlePodcast ?
         <>
             <Header />
-            <MainStyled  key={singlePodcast.collectionId}>
+            <MainStyled key={singlePodcast.collectionId}>
                 <SectionMain>
-                    <CardInfo singlePodcast={singlePodcast[0]} singleDescription={singlePodcast[singlePodcast.length - 1]}/>
+                    <CardInfo singlePodcast={singlePodcast[0]} singleDescription={singlePodcast[singlePodcast.length - 1]} />
                     <PodcastStyled>
                         <EpisodesLength singlePodcast={singlePodcast} />
                         <PodcastEpisodesStyled>

@@ -14,7 +14,7 @@ function CardInfo(props) {
     content = (
       <>
         <Card>
-          <img src={props.singlePodcast.artworkUrl600} alt="podcast-img"/>
+          <img src={props.singlePodcast.artworkUrl600} alt="podcast-img" />
           <div>
             <h4>{props.singlePodcast.trackName}</h4>
             <Italic>By {props.singlePodcast.collectionName}</Italic>
@@ -44,7 +44,7 @@ function CardInfo(props) {
           <h4>Description:</h4>
           <p>{descriptionTextEpisode}</p>
         </div>
-        </Card>
+      </Card>
     );
   }
 

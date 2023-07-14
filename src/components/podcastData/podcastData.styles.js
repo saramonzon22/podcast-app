@@ -15,9 +15,6 @@ export const List = styled.ul`
     &:hover {
         color: grey;
 
-    @media ${device.tablet} {
-
-    }
     @media ${device.laptop} {
             width: 40vw;
     }

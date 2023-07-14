@@ -1,4 +1,4 @@
-import {HeaderEp, TitleHeader} from './headerEpisodes.styles';
+import { HeaderEp, TitleHeader } from './headerEpisodes.styles';
 
 function HeaderEpisodes(props) {
 

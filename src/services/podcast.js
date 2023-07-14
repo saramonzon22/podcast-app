@@ -28,25 +28,25 @@ async function getTop100() {
             throw new Error('Error en la solicitud');
         }
         const formattedResponse = await response.json();
-        
+
         const cachedDataObj = {
             data: formattedResponse.feed.entry,
             time: new Date().toISOString()
         };
 
         localStorage.setItem('top100Podcasts', JSON.stringify(cachedDataObj));
-    
+
         const results = [];
-    
+
         formattedResponse.feed.entry.forEach((podcast) => {
-          const result = {
-            id: podcast.id.attributes['im:id'],
-            img: podcast['im:image'][2].label,
-            name: podcast['im:name'].label,
-            author: podcast['im:artist'].label,
-            description: podcast.summary.label
-          };
-          results.push(result);
+            const result = {
+                id: podcast.id.attributes['im:id'],
+                img: podcast['im:image'][2].label,
+                name: podcast['im:name'].label,
+                author: podcast['im:artist'].label,
+                description: podcast.summary.label
+            };
+            results.push(result);
         });
         return results;
 
@@ -75,10 +75,6 @@ async function getSinglePodcast(podcastId) {
 
         localStorage.setItem(`podcast-${podcastId}`, JSON.stringify(cachedDataObj));
         const formattedPodcast = formattedSinglePodcast.results;
-        
-
-        console.log(formattedPodcast)
-       
         const results = [];
 
         formattedPodcast.forEach((singlePodcast) => {
@@ -86,7 +82,7 @@ async function getSinglePodcast(podcastId) {
                 artworkUrl600: singlePodcast.artworkUrl600,
                 collectionName: singlePodcast.collectionName,
                 collectionId: singlePodcast.collectionId,
-                description: singlePodcast.description, 
+                description: singlePodcast.description,
                 shortDescription: singlePodcast.shortDescription,
                 trackName: singlePodcast.trackName,
                 trackTimeMillis: singlePodcast.trackTimeMillis,
@@ -95,8 +91,8 @@ async function getSinglePodcast(podcastId) {
                 previewUrl: singlePodcast.previewUrl
             };
             results.push(result);
-          });
-          return results;
+        });
+        return results;
 
     } catch (error) {
         console.error('Ocurrió un error:', error);

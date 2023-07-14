@@ -12,7 +12,6 @@ export const EpisodesStyles = styled.article`
     @media ${device.tablet} {
         width: 90%;
         padding: 25px;
-
     }
     @media ${device.laptop} {
         width: 40vw;

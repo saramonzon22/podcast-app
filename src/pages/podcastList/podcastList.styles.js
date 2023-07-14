@@ -15,15 +15,15 @@ export const MainHome = styled.main `
 
     @media ${device.tablet} {
         grid-template-columns: 1fr 1fr;
-      }
+    }
     
-      @media ${device.laptop} {
+    @media ${device.laptop} {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         gap: 20px;
         width: 70vw;
         align-self: center;
-      }
+    }
 `
 
 export const MainSearch = styled.div`
@@ -48,9 +48,6 @@ export const MainSearch = styled.div`
         height: 30px;
         padding-left: 15px;
         padding-right: 15px;    
-    }
-    @media ${device.tablet} {
-
     }
 
     @media ${device.laptop} {
@@ -79,6 +76,7 @@ export const MainCard = styled.div `
     margin-bottom: 50px;
     text-align: center;
     box-shadow: 3px 3px 3px 0px rgb(164 164 164 /80%), -3px 3px 3px 0px rgb(164 164 164 /80%), 0px 1px 10px 0px rgb(164 164 164 /80%);
+    
     & > img {
         border-radius: 50%;
         width: 150px;
@@ -95,7 +93,7 @@ export const MainCard = styled.div `
         color: gray;
         transform: translateY(-20px);
     }
-    }
+    
 `
 
 

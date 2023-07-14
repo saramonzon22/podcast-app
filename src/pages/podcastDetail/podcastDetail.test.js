@@ -1,6 +1,6 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import { MemoryRouter} from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import PodcastDetail from './PodcastDetail';
 import { getSinglePodcast } from '../../services/podcast';
 
@@ -16,7 +16,7 @@ describe('PodcastDetail', () => {
     getSinglePodcast.mockResolvedValue(null);
     render(
       <MemoryRouter initialEntries={[`/podcastDetail/${mockParams.podcastId}/`]}>
-          <PodcastDetail />
+        <PodcastDetail />
       </MemoryRouter>
     );
     await waitFor(() => {
