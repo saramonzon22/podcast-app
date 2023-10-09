@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { getSinglePodcast } from "../../services/podcast";
-import Header from '../../components/header/Header';
-import HeaderEpisodes from "../../components/headerEpisodes/HeaderEpisodes";
 import CardInfo from "../../components/cardInfo/CardInfo";
 import EpisodesLength from "../../components/episodesLength/EpisodesLength";
-import PodcastData from "../../components/podcastData/PodcastData";
 import Error from "../../components/error/Error";
+import Header from '../../components/header/Header';
+import HeaderEpisodes from "../../components/headerEpisodes/HeaderEpisodes";
 import { MainStyled, SectionMain } from "../../components/main/main.styles";
-import { PodcastStyled, PodcastEpisodesStyled } from "./podcastDetail.styles";
+import PodcastData from "../../components/podcastData/PodcastData";
+import { getSinglePodcast } from "../../services/podcast";
+import { PodcastEpisodesStyled, PodcastStyled } from "./podcastDetail.styles";
 
 function PodcastDetail() {
 

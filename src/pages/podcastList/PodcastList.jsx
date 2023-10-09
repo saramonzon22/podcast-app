@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { getTop100 } from "../../services/podcast";
-import { Home, MainHome, MainSearch, MainCard } from "./podcastList.styles";
-import Loading from "../../components/loading/Loading";
 import Header from "../../components/header/Header";
+import Loading from "../../components/loading/Loading";
+import { getTop100 } from "../../services/podcast";
+import { Home, MainCard, MainHome, MainSearch } from "./podcastList.styles";
 
 function PodcastList() {
   const [podcastList, setPodcastList] = useState([]);
@@ -27,6 +27,8 @@ function PodcastList() {
     setSearch(e.currentTarget.value);
     filterPodcasts(e.currentTarget.value);
   };
+
+
 
   const filterPodcasts = (searchTerm) => {
     const filtered = podcastList.filter((podcast) => {
